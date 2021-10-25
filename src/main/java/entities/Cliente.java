@@ -2,56 +2,102 @@ package entities;
 
 public class Cliente {
 	
+	private Integer id;
 	private String nome;
+	private String cpf;
+	private String telefone;
+	private String email;
+	private Endereco endereco;
+	
+	
 
-    public Cliente(String nome) {
-        this.nome = nome;
-    }
+    public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    private boolean validarNome(String nome) {
+	@SuppressWarnings("unused")
+	private boolean validarNome(String nome) {
         if(nome !=null && !nome.isEmpty() && !nome.isBlank()) {
             return true;
         }
         return false;
     }
-
-    public void setNome(String nome) {
-        if(this.validarNome(nome)) {
-            this.nome = nome.trim();
+    
+    @SuppressWarnings("unused")
+	private boolean validarCpf(String cpf) {
+        if(cpf !=null && !cpf.isEmpty() && !cpf.isBlank()) {
+            return true;
         }
-        else {
-            System.out.println("O nome indicado não obedece aos requisitos!");
+        return false;
+    }
+    
+    @SuppressWarnings("unused")
+	private boolean validarEmail(String email) {
+        if(email !=null && !email.isEmpty() && !email.isBlank()) {
+            return true;
         }
+        return false;
     }
-
-    public String getPrimeiroNome() {
-        return this.nome.substring(0, this.nome.indexOf(" "));
-    }
-
-    public String getUltimoNome() {
-        return this.nome.substring(this.nome.indexOf(" "), this.nome.length());
-    }
-
-    public String getNomeEmMaiusculo() {
-        return this.nome.toUpperCase();
-    }
-
-    public String getNomeAbreviado() {
-        String[] nomeDividido = this.nome.split(" ");
-        String nomeAbreviado = "";
-        for (int i = 0; i < nomeDividido.length; i++) {
-            if(i == 0) {
-                nomeAbreviado = nomeDividido[i]+" ";
-            }
-            else if(i == nomeDividido.length-1) {
-                nomeAbreviado += nomeDividido[i];
-            }
-            else {
-                nomeAbreviado += nomeDividido[i].substring(0, 1)+". ";
-            }
+    
+    @SuppressWarnings("unused")
+	private boolean validarTelefone(String telefone) {
+        if(telefone !=null && !telefone.isEmpty() && !telefone.isBlank()) {
+            return true;
         }
-        return nomeAbreviado;
+        return false;
     }
+    
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+    
 	
 	
 
